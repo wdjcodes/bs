@@ -3,5 +3,8 @@
   
   tasks:
   - name: Install apt packages
-    ansible.builtin.apt: name=htop
-    ansible.builtin.apt: name=kitty
+    ansible.builtin.apt: name={{item}}
+    with_items:
+      - git
+      - htop
+      - kitty
