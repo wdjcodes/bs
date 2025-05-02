@@ -1,0 +1,7 @@
+- hosts: localhost
+  become: true
+  
+  tasks:
+  - name: Install apt packages
+    ansible.builtin.apt: name=htop
+    ansible.builtin.apt: name=kitty
