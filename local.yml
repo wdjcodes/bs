@@ -3,8 +3,19 @@
   
   tasks:
   - name: Install apt packages
-    ansible.builtin.apt: name={{item}}
+    apt: name={{item}}
     with_items:
+      - curl
       - git
       - htop
       - kitty
+      - zsh
+
+  - name: Set shell to zsh
+    user:
+      name: {{ansible_user_id}}
+      shell: /bin/zsh
+  
+  - name: Install OMZ
+    shell:
+      cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
