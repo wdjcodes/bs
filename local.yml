@@ -1,8 +1,12 @@
 - hosts: localhost
-  become: true
+  become: false
+
+  vars:
+    user_id: "{{ansible_user_id}}"
   
   tasks:
   - name: Install apt packages
+    become: true
     apt: name={{item}}
     with_items:
       - curl
@@ -12,8 +16,9 @@
       - zsh
 
   - name: Set shell to zsh
+    become: true
     user:
-      name: "{{ansible_user_id}}"
+      name: "{{user_id}}"
       shell: /bin/zsh
   
   - name: Install OMZ
