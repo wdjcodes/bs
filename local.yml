@@ -13,6 +13,7 @@
       - git
       - htop
       - kitty
+      - vim
       - zsh
 
   - name: Set shell to zsh
