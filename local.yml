@@ -21,6 +21,14 @@
       name: "{{user_id}}"
       shell: /bin/zsh
   
-  - name: Install OMZ
-    shell:
-      cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  - name: Copy Themes
+    become: true
+    synchronize:
+      src: themes/
+      dest: /usr/share/themes
+
+  - name: Copy Icons
+    become: true
+    synchronize:
+      src: icons/
+      dest: /usr/share/icons
