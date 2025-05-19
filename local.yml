@@ -21,7 +21,11 @@
     user:
       name: "{{user_id}}"
       shell: /bin/zsh
-  
+
+  - name: Setup CLI
+    include_role: 
+      name: cli
+
   - name: Copy Themes
     become: true
     synchronize:
