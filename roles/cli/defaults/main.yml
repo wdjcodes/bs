@@ -1,0 +1,7 @@
+theme:
+  name: "magpie"
+  url: "https://raw.githubusercontent.com/wdjcodes/magpie/master/magpie.zsh-theme"
+  file: "magpie.zsh-theme"
+
+plugins:
+  - { name: "zsh-autosuggestion", repo: "https://github.com/zsh-users/zsh-autosuggestions" }

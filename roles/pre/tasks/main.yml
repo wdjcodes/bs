@@ -1,0 +1,2 @@
+- name: "Install Ansible requirements"
+  ansible.builtin.command: ansible-galaxy install -r {{ role_path }}/files/requirements.yml

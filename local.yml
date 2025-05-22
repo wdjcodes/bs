@@ -1,6 +1,9 @@
 - hosts: localhost
   become: false
 
+  roles:
+    - pre
+
   vars:
     user_id: "{{ansible_user_id}}"
   
@@ -25,15 +28,3 @@
   - name: Setup CLI
     include_role: 
       name: cli
-
-  - name: Copy Themes
-    become: true
-    synchronize:
-      src: themes/
-      dest: /usr/share/themes
-
-  - name: Copy Icons
-    become: true
-    synchronize:
-      src: icons/
-      dest: /usr/share/icons

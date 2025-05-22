@@ -1,3 +1,25 @@
 - name: "Install Oh-My-Zsh"
   include_role: 
-    name: "ansible-role-oh-my-zsh"
+    name: "ctorgalson.oh-my-zsh"
+    apply:
+      become: true
+  vars:
+    omz_user:
+      name: "{{ ansible_user_id }}"
+      group: "{{ ansible_user_id }}"
+      settings: ""
+    omz_zsh_theme: "magpie"
+    omz_plugins:
+      - zsh-autosuggestions
+- name: "Install OMZ theme"
+  ansible.builtin.uri:
+    url: "{{ theme.url }}"
+    dest: "$ZSH/custom/themes/"
+    creates: "$ZSH/custom/themes/{{ theme.file }}"
+    mode: "660"
+
+- name: "Install OMZ plugins"
+  ansible.builtin.git: 
+    repo: "{{ item.repo }}"
+    dest: "$ZSH/custom/plugins/{{ item.name }}"
+  loop: "{{ plugins }}"
