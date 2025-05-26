@@ -4,4 +4,4 @@ theme:
   file: "magpie.zsh-theme"
 
 plugins:
-  - { name: "zsh-autosuggestion", repo: "https://github.com/zsh-users/zsh-autosuggestions" }
+  - { name: "zsh-autosuggestions", repo: "https://github.com/zsh-users/zsh-autosuggestions" }
